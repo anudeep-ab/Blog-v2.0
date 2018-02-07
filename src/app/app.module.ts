@@ -7,7 +7,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from './../environments/environment';
 import { RouterModule, Routes } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
@@ -21,6 +21,9 @@ import { AuthService } from 'app/auth.service';
 import { AuthGuardService } from 'app/auth-guard.service';
 import { UserService } from './user.service';
 import { CreateBlogComponent } from './create-blog/create-blog.component';
+import { BlogService } from 'app/blog.service';
+import { HttpModule } from '@angular/http';
+
 
 
 export const routes: Routes = [
@@ -51,6 +54,8 @@ export const routes: Routes = [
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     FormsModule,
+    HttpModule,
+    ReactiveFormsModule,
     NgbModule.forRoot(),
     RouterModule.forRoot(routes)
   ],
@@ -58,7 +63,8 @@ export const routes: Routes = [
     AuthService,
     AuthGuardService,
     UserService,
-    AdminAuthGuard
+    AdminAuthGuard,
+    BlogService
   ],
   bootstrap: [AppComponent]
 })
